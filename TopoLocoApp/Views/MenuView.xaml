@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TopoLocoApp.Views.MenuView"
+             xmlns:vm="clr-namespace:TopoLocoApp.ViewModels"
+             x:DataType="vm:TopoLocoViewModel"
+             Title="MenuView"
+             Shell.BackgroundColor="White">
+    <Grid>
+        
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                <GradientStop Color="#9cbc14" Offset="0"></GradientStop>
+                <GradientStop Color="White" Offset="0.4"></GradientStop>
+                <GradientStop Color="LightBlue" Offset="1"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" Margin="30" FontSize="55" HorizontalTextAlignment="Center" CharacterSpacing="2" FontFamily="Glossy" TextColor="#3d7b80">TOPO LOCO</Label>
+
+
+        <Border Grid.Row="2" Margin="20,0,20,0" StrokeShape="RoundRectangle 20" StrokeThickness="0" >
+
+            <Border.Shadow>
+                <Shadow Opacity="0.8" Brush="#3d7b80"></Shadow>
+            </Border.Shadow>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Margin="20" FontFamily="Glossy" FontSize="27" CharacterSpacing="2" TextColor="#3d7b80">Nombre de jugador</Label>
+                <Border Grid.Row="1" StrokeShape="RoundRectangle 20" Margin="10" >
+                    <Border.Shadow>
+                        <Shadow Offset="10,10" Opacity="0.6" Brush="#a4c4cc"></Shadow>
+                    </Border.Shadow>
+                    <Entry Margin="0,0,0,-7" Text="{Binding jugador.NombreUsuario}"></Entry>
+                </Border>
+                <Border Grid.Row="2" Margin="50" StrokeThickness="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Button Margin="10" Text="INICIAR JUEGO"
+                                Grid.ColumnSpan="2" 
+                                CharacterSpacing="4" 
+                                CornerRadius="20"
+                                TextColor="White" 
+                                FontFamily="Glossy" 
+                                FontSize="25"
+                                Command="{Binding JugarCommand}" >
+
+
+                            <Button.Background>
+                                <LinearGradientBrush   >
+                                    <GradientStop Color="#F7B548" Offset="0"></GradientStop>
+                                    <GradientStop Color="#F7B548" Offset="1"></GradientStop>
+                                </LinearGradientBrush>
+                            </Button.Background>
+
+
+                        </Button>
+                    </Grid>
+                </Border>
+
+                <Button Grid.Row="3" Text="PUNTUACIONES" CharacterSpacing="6" FontFamily="Glossy" FontSize="25" TextColor="White" BackgroundColor="#F7B548" Command="{Binding VerPuntuacionesCommand}" >
+
+                </Button>
+
+            </Grid>
+        </Border>
+
+        <Image Grid.Row="3" Source="/Resources/Images/topo.png" HeightRequest="360" Margin="60" WidthRequest="200"></Image>
+
+
+    </Grid>
+
+
+</ContentPage>

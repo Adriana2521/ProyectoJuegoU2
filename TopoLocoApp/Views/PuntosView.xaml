@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TopoLocoApp.Views.PuntosView"
+             xmlns:vm="clr-namespace:TopoLocoApp.ViewModels"
+             x:DataType="vm:TopoLocoViewModel"
+             xmlns:m="clr-namespace:TopoLocoApp.Models"
+             
+             Shell.BackgroundColor="White"
+             Shell.ForegroundColor="Black">
+
+
+
+
+    <Grid >
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#9cbc14" Offset="0"></GradientStop>
+                <GradientStop Color="White" Offset="0.75"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label HorizontalTextAlignment="Center" 
+               Margin="50" CharacterSpacing="2"
+               FontFamily="Glossy" 
+               FontSize="50" 
+               TextColor="#3d7b80"
+        >PUNTUACION</Label>
+
+        <Border Grid.Row="1" Margin="10,0,10,60" StrokeShape="RoundRectangle 20" >
+
+            <Border.Shadow>
+                <Shadow Opacity="0.8" Brush="#3d7b80"></Shadow>
+            </Border.Shadow>
+
+            <ListView ItemsSource="{Binding Usuarios}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="m:Usuario">
+                        <TextCell Text="{Binding NombreUsuario}" Detail="{Binding Puntaje}"  TextColor="Black"  ></TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Border>
+
+
+
+    </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ContentPage>

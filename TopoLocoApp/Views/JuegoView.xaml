@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TopoLocoApp.Views.JuegoView"
+             xmlns:vm="clr-namespace:TopoLocoApp.ViewModels"
+             x:DataType="vm:TopoLocoViewModel"
+             xmlns:m="clr-namespace:TopoLocoApp.Models"
+             Title="JuegoView">
+
+
+
+
+    <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                <GradientStop Color="#9cbc14" Offset="0"></GradientStop>
+                <GradientStop Color="White" Offset="0.4"></GradientStop>
+                <GradientStop Color="LightBlue" Offset="1"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Border Margin="6">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label HorizontalTextAlignment="Center" FontFamily="Glossy" FontSize="25" CharacterSpacing="3" TextColor="#3d7b80">PUNTUACION MAS ALTA</Label>
+                <ListView Grid.Row="1" ItemsSource="{Binding PuntuacionesAltas}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="m:Usuario">
+                            <ViewCell>
+                                <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Start">
+                                    <Label Margin="5,0" 
+                                           VerticalTextAlignment="Center"
+                                           FontAttributes="Bold" Text="{Binding NombreUsuario}"></Label>
+                                    <Label Margin="15,0" 
+                                           VerticalTextAlignment="Center"
+                                           Text="{Binding Puntaje}"></Label>
+                                </HorizontalStackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Margin="5" BackgroundColor="Transparent"  StrokeThickness="0">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <!--<Label HorizontalTextAlignment="Center" FontFamily="Glossy" FontSize="25" CharacterSpacing="2" TextColor="#3d7b80" >JUGADOR</Label>
+                <Label Grid.Column="1" HorizontalOptions="Center" Text="{Binding myUser.NombreUsuario}" ></Label>-->
+
+                <Label Grid.Column="2" HorizontalTextAlignment="Center" FontFamily="Glossy" CharacterSpacing="4" FontSize="25" TextColor="#3d7b80" WidthRequest="200"> TUS PUNTOS :</Label>
+                <Label Grid.Column="3" HorizontalOptions="Center" FontSize="25" Text="{Binding Puntos}" ></Label>
+
+            </Grid>
+
+        </Border>
+        <Border Grid.Row="2" WidthRequest="100" StrokeShape="RoundRectangle 80">
+            <Label HorizontalOptions="Center" FontSize="30" Text="{Binding tiempo}" >
+            </Label>
+        </Border>
+
+        <ImageButton x:Name="btnimgtopo" Grid.Row="3" Source="/Resources/Images/topo.png" Command="{Binding GolpearTopoCommand}" Clicked="ImageButton_Clicked"></ImageButton>
+
+
+    </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ContentPage>
